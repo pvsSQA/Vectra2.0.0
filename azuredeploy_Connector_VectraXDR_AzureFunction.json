@@ -62,12 +62,50 @@
             "type": "securestring",
             "defaultValue": ""
         },
+        "KeyVaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "Enter name of keyvault where tokens will be stored"
+            }
+        },
+        "AzureClientId": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Enter Azure Client Id that you have created during app registration"
+            }
+        },
+        "AzureClientSecret": {
+            "type": "securestring",
+            "minLength": 1,
+            "metadata": {
+                "description": "Enter Azure Client Secret that you have created during creating the client secret"
+            }
+        },
+        "TenantId":{
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Enter Tenant Id of your Microsoft Entra Id"
+            }
+        },
         "StartTime": {
             "type": "string",
             "metadata": {
                 "description": "Optional. Start Time for data collection in UTC (MM/DD/YYYY HH:MM:SS) Format (Ex: 07/19/2022 14:36:12). Default will be Current time."
             },
             "defaultValue": ""
+        },
+        "IncludeScoreDecrease": {
+            "type": "bool",
+            "defaultValue": false,
+            "allowedValues": [
+                true,
+                false
+            ],
+            "metadata": {
+                "description": "Select true to include ingesting data when the score decreases. Default is false."
+            }
         },
         "AuditsTableName": {
             "type": "string",
@@ -268,7 +306,7 @@
                 "alwaysOn": true,
                 "reserved": true,
                 "siteConfig": {
-                    "linuxFxVersion": "python|3.8"
+                    "linuxFxVersion": "python|3.9"
                 }
             },
             "resources": [
@@ -311,6 +349,11 @@
                         "EntityScoringSchedule": "[parameters('EntityScoringSchedule')]",
                         "LockdownSchedule": "[parameters('LockdownSchedule')]",
                         "HealthSchedule": "[parameters('HealthSchedule')]",
+                        "KeyVaultName": "[parameters('KeyvaultName')]",
+                        "AZURE_CLIENT_ID": "[parameters('AzureClientId')]",
+                        "AZURE_CLIENT_SECRET": "[parameters('AzureClientSecret')]",
+                        "AZURE_TENANT_ID": "[parameters('TenantId')]",
+                        "IncludeScoreDecrease": "[parameters('IncludeScoreDecrease')]",
                         "WEBSITE_RUN_FROM_PACKAGE": "https://aka.ms/sentinel-VectraXDR-functionapp"
                     }
                 }
