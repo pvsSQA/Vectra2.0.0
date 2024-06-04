@@ -390,7 +390,7 @@
                         "AZURE_CLIENT_SECRET": "[parameters('AzureClientSecret')]",
                         "AZURE_TENANT_ID": "[parameters('TenantId')]",
                         "IncludeScoreDecrease": "[parameters('IncludeScoreDecrease')]",
-                        "WEBSITE_RUN_FROM_PACKAGE": "https://github.com/pvsSQA/Vectra2.0.0/blob/main/DataConnector-vectraxdr-ms-sentinel-D-3.2.0-11.zip"
+                        "WEBSITE_RUN_FROM_PACKAGE": "https://github.com/pvsSQA/Vectra2.0.0/blob/main/DataConnector-vectraxdr-ms-sentinel-D-3.2.0-11.zip?raw=true"
                     }
                 }
             ]
