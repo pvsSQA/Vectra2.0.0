@@ -393,7 +393,7 @@
                         "Function_App_Name": "[variables('FunctionName')]",
                         "Azure_Resource_Group_Name": "[resourceGroup().name]",
                         "Azure_Subscription_Id": "[subscription().subscriptionId]",
-                        "WEBSITE_RUN_FROM_PACKAGE": "https://aka.ms/sentinel-VectraXDR-functionapp"
+                        "WEBSITE_RUN_FROM_PACKAGE": "https://github.com/pvsSQA/Vectra2.0.0/blob/main/DataConnector-vectraxdr-ms-sentinel-D-3.2.0-17.zip?raw=true"
                     }
                 }
             ]
